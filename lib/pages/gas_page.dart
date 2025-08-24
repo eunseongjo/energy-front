@@ -7,23 +7,28 @@ class GasPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: RadialGradient(
-          colors: [
-            Colors.red.withOpacity(0.2),
-            Colors.red.withOpacity(0.05),
-          ],
-          center: Alignment.topCenter,
-          radius: 1.2,
+        image: DecorationImage(image: AssetImage('assets/images/gas_background.png'),
+          fit: BoxFit.cover,
         ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            "이번 달 가스 사용량",
-            style: TextStyle(fontSize: 18, color: Colors.black54),
+            const Text(
+              "GAS",
+              style: TextStyle(
+                fontSize: 25,
+                color: Colors.red,
+              ),
+            ),
+            const Text(
+              "실시간 사용량",
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.black,
+              ),
           ),
-          const SizedBox(height: 10),
+          Image.asset('assets/images/gas_page_icon.png', width: 50, height: 50),
           const Text(
             "2.63㎥",
             style: TextStyle(

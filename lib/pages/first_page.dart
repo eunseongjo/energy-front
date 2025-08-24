@@ -7,18 +7,14 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: RadialGradient(
-          colors: [
-            Colors.purple.withOpacity(1),
-            Colors.black.withOpacity(1),
-          ],
-          center: Alignment.center,
-          radius: 0.3,
-        ),
+        image: DecorationImage(image: AssetImage('assets/images/main_background.png'),
+        fit: BoxFit.cover,
+      ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const SizedBox(height: 20,),
           const Text(
             "이번 달 누적 요금",
             style: TextStyle(fontSize: 18, color: Colors.black54),
@@ -28,32 +24,30 @@ class FirstPage extends StatelessWidget {
           const Text(
             "₩23,356",
             style: TextStyle(
-              fontSize: 32,
+              fontSize: 40,
               fontWeight: FontWeight.bold,
               color: Colors.purple,
             ),
           ),
 
-          const SizedBox(height: 200),
+          const SizedBox(height: 300),
+
           SizedBox(
-              height: 250,
+            height: 255,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              _circleInfo("15.56㎥", "1,382원"),
+              const SizedBox(width: 55),
+              _circleInfo('assets/images/electric_image.png', "15.56㎥", "1,382원"),
               const SizedBox(width: 12),
-              _circleInfo("35.32㎥", "7,297원"),
+              _circleInfo('assets/images/gas_image.png',"35.32㎥", "7,297원"),
               const SizedBox(width: 12),
-              _circleInfo("1번", "250,000원"),
+              _circleInfo('assets/images/water_image.png',"1번", "250,000원"),
               const SizedBox(width: 12),
-              _circleInfo("1번", "250,000원"),
+              _circleInfo('assets/images/electric_image.png',"1번", "250,000원"),
               const SizedBox(width: 12),
-              _circleInfo("1번", "250,000원"),
-              const SizedBox(width: 12),
-              _circleInfo("1번", "250,000원"),
-              const SizedBox(width: 12),
-              _circleInfo("1번", "250,000원"),
-
+              _circleInfo('assets/images/electric_image.png',"1번", "250,000원"),
+              const SizedBox(width: 55),
             ],
           )
         )
@@ -63,15 +57,15 @@ class FirstPage extends StatelessWidget {
     );
   }
 
-  static Widget _circleInfo(String value, String label) {
-    return Container(
-      width: 200,
-      height: 100,
+  static Widget _circleInfo(String image, String value, String label) {
+    return Container(padding: EdgeInsets.all(15),
+      child: Container(
+      width: 230,
       decoration: ShapeDecoration(
         color: Colors.white,
         shape: OvalBorder(
           side: BorderSide(
-            width: 1,
+            width: 0.5,
             color: const Color(0xBF8B52E6),
           ),
         ),
@@ -87,10 +81,13 @@ class FirstPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
-          Text(label, style: const TextStyle(fontSize: 12)),
+          Image.asset(image, width: 20, height: 20, fit: BoxFit.contain),
+          const SizedBox(height: 10,),
+          Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+          Text(label, style: const TextStyle(fontSize: 20)),
         ],
       ),
+    )
     );
   }
 }

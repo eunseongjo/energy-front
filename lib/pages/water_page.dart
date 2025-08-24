@@ -7,23 +7,28 @@ class WaterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: RadialGradient(
-          colors: [
-            Colors.blue.withOpacity(0.2),
-            Colors.blue.withOpacity(0.05),
-          ],
-          center: Alignment.topCenter,
-          radius: 1.2,
+        image: DecorationImage(image: AssetImage('assets/images/water_background.png'),
+          fit: BoxFit.cover,
         ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Text(
-            "이번 달 수도 사용량",
-            style: TextStyle(fontSize: 18, color: Colors.black54),
+        children: [
+          const Text(
+            "WATER",
+            style: TextStyle(
+              fontSize: 25,
+              color: Colors.blue,
+            ),
           ),
-          SizedBox(height: 10),
+          const Text(
+            "실시간 사용량",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          Image.asset('assets/images/water_page_icon.png', width: 50, height: 50),
           Text(
             "15.56㎥",
             style: TextStyle(

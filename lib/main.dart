@@ -63,12 +63,12 @@ class _MainPageState extends State<MainPage> {
                   return AnimatedContainer(
                     duration: const Duration(milliseconds: 300),
                     margin: const EdgeInsets.symmetric(horizontal: 4),
-                    width: _currentPage == index ? 12 : 8,
-                    height: _currentPage == index ? 12 : 8,
+                    width: _currentPage == index ? 10 : 8,
+                    height: _currentPage == index ? 10 : 8,
                     decoration: BoxDecoration(
                       color: _currentPage == index
-                          ? Colors.purple.withOpacity(0.7)
-                          : Colors.white.withOpacity(0.4),
+                          ? Color(0xFF8B53E7).withOpacity(0.75)
+                          : Colors.black.withOpacity(0.1),
                       shape: BoxShape.circle,
                     ),
                   );

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../api_service/electricity_service.dart';
+import '../model/electric_dto.dart';
 
 class ElectricityPage extends StatelessWidget {
   const ElectricityPage({super.key});
@@ -7,60 +9,36 @@ class ElectricityPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: RadialGradient(
-          colors: [
-            Colors.purple.withOpacity(0.2),
-            Colors.purple.withOpacity(0.05),
-          ],
-          center: Alignment.topCenter,
-          radius: 1.2,
+        image: DecorationImage(image: AssetImage('assets/images/electric_background.png'),
+          fit: BoxFit.cover,
         ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            "이번 달 누적 요금",
-            style: TextStyle(fontSize: 18, color: Colors.black54),
+            "ELECTRICITY",
+            style: TextStyle(
+              fontSize: 25,
+              color: Colors.green,
+            ),
           ),
-          const SizedBox(height: 10),
+          const Text(
+            "실시간 사용량",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+          ),
+          Image.asset('assets/images/electric_page_icon.png', width: 50, height: 50),
           const Text(
             "₩23,356",
             style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
-              color: Colors.purple,
+              color: Colors.green,
             ),
           ),
-          const SizedBox(height: 50),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _circleInfo("15.56㎥", "1,382원"),
-              const SizedBox(width: 12),
-              _circleInfo("35.32㎥", "7,297원"),
-              const SizedBox(width: 12),
-              _circleInfo("1번", "250,000원"),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-
-  static Widget _circleInfo(String value, String label) {
-    return Container(
-      width: 80,
-      height: 80,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(color: Colors.purple, width: 2),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
-          Text(label, style: const TextStyle(fontSize: 12)),
         ],
       ),
     );
