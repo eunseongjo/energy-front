@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../model/electric_dto.dart'
+import '../model/electric_dto.dart';
 
 Future<List> getElecInfo() async {
   final response = await http.get(Uri.parse('http://127.0.0.1:8080/electric/allData'));
